@@ -1,0 +1,41 @@
+{
+  "name": "berish-validation",
+  "version": "1.0.0",
+  "description": "Проверка условий и общая валидация объектов, в том числе бизнес-моделей",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "repository": "https://gitlab.com/berish/packages/berish-validation",
+  "author": "Berishev Ravil <quadraticteam@gmail.com>",
+  "license": "Apache License 2.0",
+  "private": false,
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "test:watch": "jest --config jestconfig.json --watch --verbose=false",
+    "build": "tsc -p .",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.6",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3333"
+  },
+  "files": [
+    "build/**/*"
+  ],
+  "dependencies": {
+    "berish-collection": "^2.0.1",
+    "berish-guid": "^2.0.0",
+    "berish-ringle": "^2.1.0",
+    "berish-serber": "^2.3.2"
+  }
+}
